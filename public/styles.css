@@ -1,0 +1,34 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #222;
+}
+
+h3 {
+    font-size: 1.4rem;
+}
+
+i {
+    font-size: 1.2rem;
+    margin: 19px 0px;
+}
+
+/* Cards */
+
+.card{
+    padding: 27px;
+    height: 17vh;
+    background-color: #555;
+    color: #fff;
+    margin: 28px 18px;
+    border-radius: 13px;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 5px 9px 10px #666;
+    align-items: center;
+}
