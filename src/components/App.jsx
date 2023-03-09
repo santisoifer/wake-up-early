@@ -1,4 +1,6 @@
+import React from "react";
 import Card from "./Card";
+import CreateCard from "./CreateCard";
 
 function App() {
   return (
@@ -15,6 +17,8 @@ function App() {
       objetive="11/3, 7:30"
       creator="Santi Soifer"
       />
+
+      <CreateCard />
     </div>
   );
 }
