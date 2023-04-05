@@ -1,23 +1,35 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Card from "./Card";
 import CreateCard from "./CreateCard";
+import axios from "axios";
 
 function App() {
+
+  const [cards, setCards] = useState([]);
+
+  useEffect(() => {
+    axios.get('http://localhost:3005/routines')
+      .then(response => {
+        setCards(response.data);
+      })
+      .catch(error => {
+        console.log(error);
+      })
+  }, []);
+
   return (
     <div>
-      <Card 
-      title="Early wake up" 
-      description="Wake up earlier in a week!"
-      objetive="14/3, 8:00"
-      creator="Santi Soifer"
-      />
-      <Card 
-      title="Not a morning person" 
-      description="For people that find dificult waking up in the mornings."
-      objetive="11/3, 7:30"
-      creator="Santi Soifer"
-      />
-
+      {
+        cards.map((routine, index) => (
+          <Card
+          key={index}
+          title={routine.name}
+          description={routine.description}
+          objetive={routine.time}
+          creator={routine.author}
+        />
+        ))
+      }
       <CreateCard />
     </div>
   );

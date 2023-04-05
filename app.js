@@ -1,11 +1,14 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
+const cors = require("cors");
 
 const app = express();
 
 mongoose.connect("mongodb://127.0.0.1:27017/wake-up-early");
+
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cors());
 
 const routineSchema = mongoose.Schema({
     name: String,
